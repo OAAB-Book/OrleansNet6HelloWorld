@@ -11,7 +11,7 @@ var siloHost = new SiloHostBuilder()
     .UseLocalhostClustering()
     .Configure<ClusterOptions>(options =>
     {
-        options.ClusterId = "console-host-01";
+        options.ClusterId = "console-demo";
         options.ServiceId = "Demo Greeting Service";
     })
     .Configure<EndpointOptions>(options => options.AdvertisedIPAddress = IPAddress.Loopback)
@@ -41,6 +41,7 @@ waitForProcessShutdown.WaitOne();
 
 WriteLine("Shutting down Silo...");
 await siloHost.StopAsync().ConfigureAwait(false);
+siloHost.Dispose();
 WriteLine("===\r\nSilo shutdown complete, exiting...\r\n===");
 Environment.Exit(0);
 

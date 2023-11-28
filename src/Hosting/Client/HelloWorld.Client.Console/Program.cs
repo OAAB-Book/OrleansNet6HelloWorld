@@ -10,7 +10,7 @@ var client = new ClientBuilder()
     .UseLocalhostClustering()
     .Configure<ClusterOptions>(options =>
     {
-        options.ClusterId = "console-client-01";
+        options.ClusterId = "console-demo";
         options.ServiceId = "Demo Greeting Service";
     })
     .ConfigureApplicationParts(parts =>
